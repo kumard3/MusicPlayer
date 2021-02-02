@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react'
 import { Alert, Text, View } from 'react-native'
-import * as MediaLibrary from 'expo-media-libary';
+import * as MediaLibrary from 'expo-media-library';
 
 export const AudioContext = createContext()
 export class AudioProvider extends Component {
@@ -22,7 +22,7 @@ export class AudioProvider extends Component {
                     mediaType : 'audio'
             })
         }
-    getPermission=() => {
+    getPermission = async () => {
         const permission = await MediaLibrary.getPermissionAsync()
         if(permission.granted){
             this.getAudioFiles()
